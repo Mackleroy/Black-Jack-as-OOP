@@ -9,7 +9,7 @@ class Card:
     def index(self) -> str:
         return f'{self.rank}{self.suite}'
 
-    def get_value(self, points) -> int:
+    def get_value(self, points: int) -> int:
         if self.rank in 'ВДК' or self.rank == '10':
             return 10
 
@@ -34,7 +34,7 @@ class CardDeck:
 
 
 class Player:
-    def __init__(self, name) -> None:
+    def __init__(self, name: str) -> None:
         self.points = 0
         self.cards = []
         self.name = name
@@ -49,11 +49,11 @@ class Player:
 
 
 class Dealer(Player):
-    def myself(self, deck):
+    def myself(self, deck) -> None:
         while self.points < 18:
             self.one_more_card(deck)
 
-    def table_result(self, player):
+    def table_result(self, player) -> None:
         print(self.turn_summary())
         print(player.turn_summary())
 
